@@ -1,59 +1,91 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title></title>
-    <script src="src/person.js"></script>
-    <script src="src/bmi_calculator.js"></script>
-    <script src="src/imperial_calculator.js"></script>
-    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-    <script type="text/javascript">
 
-      $(document).ready(function() {
-        $('#metric-calculate').click(function (){
-          var w = parseFloat($('#metric-weight').val());
-          var h = parseFloat($('#metric-height').val());
+<head>
+  <meta charset="utf-8" />
+  <title></title>
+  <script src="src/person.js"></script>
+  <script src="src/bmi_calculator.js"></script>
+  <script src="src/imperial_calculator.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+          var method = 'imperial';
+          $('#calculate').click(function() {
+                var w = $('#weight').val();
+                var h = $('#height').val();
+                var person = new Person({
+                  weight: w,
+                  height: h
+                });
+                person.calculate_imperial();
+                $('#display-value').html('Your
+                  BMI is ' + person.bmiValue); $('#
+                  display - message ').html('
+                  and you are ' + person.bmiMessage); });
 
-          var person = new Person({weight: w, height: h});
-          person.calculate_metric();
-          $('#display-value').html('Your BMI is ' + person.bmiValue);
-          $('#display-message').html('and you are ' + person.bmiMessage);
-        });
+                  $('#BMI-Method').change(function() {
+                    method = $('#BMI-Method').val();
+                    if (method == "metric") {
+                      $('#calculate').click(function() {
+                        var w = parseFloat($('#weight').val());
+                        var h = parseFloat($('#height').val());
+                        var person = new Person({
+                          weight: w,
+                          height: h
+                        });
+                        person.calculate_metric();
+                        $('#display-value').html('Your BMI is ' + person.bmiValue);
+                        $('#display-message').html('and you are ' + person.bmiMessage);
+                      });
 
+                    } else {
 
+                      $('#calculate').click(function() {
+                        var w = $('#weight').val();
+                        var h = $('#height').val();
+                        var person = new Person({
+                          weight: w,
+                          height: h
+                        });
+                        person.calculate_imperial();
 
-        $('#imperial-calculate').click(function () {
-          var w = $('#imperial-weight').val();
-          var h = $('#imperial-height').val();
+                        $('#display-value').html('Your BMI is ' + person.bmiValue);
+                        $('#display-message').html('and you are ' + person.bmiMessage);
+                      });
+                    }
+                  });
+                });
+  </script>
 
-          var person = new Person({weight: w, height: h});
-          person.calculate_imperial();
-          $('#display-value').html('Your BMI is ' + person.bmiValue);
-          $('#display-message').html('and you are ' + person.bmiMessage);
-        });
-      });
+</head>
 
-    </script>
+<body>
+  <form>
+    <input type="text" id="weight" placeholder="Weight" />
+    <input type="text" id="height" placeholder="Height" />
+    <input type="button" id="calculate" value="Calculate" />
+  </form>
 
-  </head>
-  <body>
-    <form>
-      <input type="text" id="metric-weight" placeholder="Weight"/>
-      <input type="text" id="metric-height" placeholder="Height"/>
-      <input type="button" id="metric-calculate" value="Calculate"/>
-    </form>
-
-    <form>
+  <!-- <form>
       <input type="text" id="imperial-weight" placeholder="Weight"/>
       <input type="text" id="imperial-height" placeholder="Height"/>
       <input type="button" id="imperial-calculate" value="Calculate"/>
-    </form>
+    </form> -->
 
-    <div>
-      <span id="display-value"></span>
-      <span id="display-message"></span>
-      <!-- <span></span> -->
-    </div>
+  <div>
+    <span id="display-value"></span>
+    <span id="display-message"></span>
+    <!-- <span></span> -->
+  </div>
 
-  </body>
+  <div class="Calculate Methods">
+    BMI Methods
+    <select id="BMI-Method">
+        <option value="imperial">Imperial</option>
+        <option value="metric">Metric</option>
+    </select>
+  </div>
+</body>
+
 </html>
