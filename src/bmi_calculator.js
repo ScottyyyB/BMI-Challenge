@@ -25,4 +25,4 @@ function setBMIMessage (obj) {
   if (obj.bmiValue > 30) {
     obj.bmiMessage = "Obese"
   }
-}
+};

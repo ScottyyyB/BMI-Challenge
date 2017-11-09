@@ -5,46 +5,42 @@
     <title></title>
     <script src="src/person.js"></script>
     <script src="src/bmi_calculator.js"></script>
+    <script src="src/imperial_calculator.js"></script>
     <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-    <script src="http://example.com/script.js"></script>
-    <noscript>
-    <meta http-equiv="refresh" content="0; URL=http://example.com/noscript.html"/>
-    </noscript>
     <script type="text/javascript">
 
       $(document).ready(function() {
-        $('#bmi-calculate').click(function (){
-          var w = parseFloat($('#bmi-weight').val());
-          var h = parseFloat($('#bmi-height').val());
+        $('#metric-calculate').click(function (){
+          var w = parseFloat($('#metric-weight').val());
+          var h = parseFloat($('#metric-height').val());
 
           var person = new Person({weight: w, height: h});
-          person.calculate_bmi();
-          $('#display_value').html('Your BMI is ' + person.bmiValue);
-          $('#display_message').html('and you are ' + person.bmiMessage);
+          person.calculate_metric();
+          $('#display-value').html('Your BMI is ' + person.bmiValue);
+          $('#display-message').html('and you are ' + person.bmiMessage);
         });
 
-        // $('#imperial-calculate').click(function () {
-        //   var w = parseFloat($('#imperial-weight').val());
-        //   var h = parseFloat($('#imperial-height').val());
-        //
-        //   var person = new Person({weight: w, height: h});
-        //   person.calculate_imperial();
-        //
-        // });
+
+
+        $('#imperial-calculate').click(function () {
+          var w = $('#imperial-weight').val();
+          var h = $('#imperial-height').val();
+
+          var person = new Person({weight: w, height: h});
+          person.calculate_imperial();
+          $('#display-value').html('Your BMI is ' + person.bmiValue);
+          $('#display-message').html('and you are ' + person.bmiMessage);
+        });
       });
 
-    </script>
-
-    <script>
-      x = 3;
     </script>
 
   </head>
   <body>
     <form>
-      <input type="text" id="bmi-weight" placeholder="Weight"/>
-      <input type="text" id="bmi-height" placeholder="Height"/>
-      <input type="button" id="bmi-calculate" value="Calculate"/>
+      <input type="text" id="metric-weight" placeholder="Weight"/>
+      <input type="text" id="metric-height" placeholder="Height"/>
+      <input type="button" id="metric-calculate" value="Calculate"/>
     </form>
 
     <form>
@@ -54,9 +50,10 @@
     </form>
 
     <div>
-      <span id="display_value"></span>
-      <span id="display_message"></span>
-
+      <span id="display-value"></span>
+      <span id="display-message"></span>
+      <!-- <span></span> -->
     </div>
+
   </body>
 </html>
