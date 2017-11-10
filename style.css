@@ -2,31 +2,102 @@ html {
   /*background-color: lightBlue;*/
   border-left: 5px solid orange;
   border-right: 5px solid orange;
-  background-image: url('https://wallpaperstock.net/wallpapers/thumbs1/45258hd.jpg');
-  height: contain;
+  background-image: url('http://cdn.pcwallart.com/images/landscape-photography-wallpaper-1.jpg');
+  background-position: center;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.head {
+  font-size: 45px;
+  text-align: center;
+  letter-spacing: 6px;
+  color: white;
+  font-family: 'Raleway', sans-serif;
+}
+.head h1 {
+  position: relative;
+  bottom: 30px;
 }
 
 .main {
-  padding: 200px;
+  position: relative;
+  bottom: 30px;
+  padding-top: 0px;
+  padding-bottom: 20px;
+
 }
+
 .calculate-methods {
+  color: orange;
+  font-family: 'Raleway', sans-serif;
   text-align: center;
-  margin: 0px;
+  /*padding-right: 200px;*/
+  clear: both;
 }
 
 #calculate {
-  font-family: 'Times New Roman';
-  margin-left: 10px;
+  color: white;
+  font-family: 'Oswald';
+  margin-left: 8px;
   background-color: orange;
-  border-radius: 30px;
+  font-size: 12px;
+  padding: 7.3px;
+  letter-spacing: 0.5px;
 }
 
 .input-fields {
   text-align: center;
-  margin: 25px;
+  font-size: 20px;
 }
 
+.input-fields input::placeholder {
+  text-align: center;
+  font-style: bold;
+  color: rgb(157, 148, 148);
+}
+
+#weight {
+  font-size: 11px;
+}
 .input-fields input {
-  border-color: orange;
-  padding: 5px;
+  margin: 0px 2px;
+  border-color: rgb(113, 202, 243);
+  background-color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.5px;
+  padding: 9px;
+  margin-bottom: 25px;
+}
+
+.display {
+  margin-top: 10px;
+  text-align: center;
+  font-family: 'Ralway', sans-serif;
+}
+
+.display h4 {
+  color: white;
+  letter-spacing: 0.5px;
+  font-size: 12.5px;
+  font-family: 'Raleway', sans-serif;
+  margin-right: 100px;
+  margin-bottom: 5px;
+  padding-bottom: 8px;
+}
+
+#BMI-Method {
+  border-color: rgb(113, 202, 243);
+  margin-left: 10px;
+  color: gray;
+}
+
+
+.display span {
+  font-family: 'Roboto', sans-serif;
+  font-size: 23px;
+  padding-top: 20px;
+  padding-right: 2px;
+  color: white;
+  text-align: center;
 }

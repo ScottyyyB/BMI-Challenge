@@ -21,7 +21,6 @@
         jasmine.getFixtures().fixturesPath = '.';
         loadFixtures('index.html');
         $.holdReady(false);
-        $('#BMI-Method').val('metric');
         $('#weight').val('176');
         $('#height').val('75');
         $('#calculate').trigger('click');
@@ -43,12 +42,12 @@
       jasmine.getFixtures().fixturesPath = '.';
       loadFixtures('index.html');
       $.holdReady(false);
+      $('#BMI-Method').val('metric');
       $('#weight').val('90');
       $('#height').val('186');
-      $('#BMI-Method option').filter(function() {
-        return ($(this).text() == 'metric');
-      }).prop('selected', true);
-      // $('#BMI-Method').val('metric');
+      // $('#BMI-Method option').filter(function() {
+      //   return ($(this).text() == 'Metric');
+      // }).prop('selected', true);
       $('#calculate').trigger('click');
     });
 
